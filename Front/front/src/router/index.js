@@ -1,6 +1,8 @@
+
 import {createRouter, createWebHistory} from 'vue-router'
 import HomeText from "@/components/home/HomeContent.vue";
 import CreateComponent from "@/components/create/CreateComponent.vue";
+import AlignmentComponent from "@/components/alignment/AlignmentComponent.vue";
 
 
 const router = createRouter({
@@ -15,6 +17,12 @@ const router = createRouter({
             path:'/Create',
             name:'create',
             component:CreateComponent
+        },
+        {
+            path:'/Alignment/:item',
+            name:'alignment',
+            component: AlignmentComponent,
+            props: true
         }
     ]
 })

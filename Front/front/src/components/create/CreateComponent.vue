@@ -1,10 +1,14 @@
-<script>
-export default {
-  methods:{
-    show: function (name,pronouns){
-      console.log(name,pronouns)
+<script setup>
+import {ref} from 'vue'
+import router from "@/router/index.js";
+const alignment = ref("Choose Alignment")
+function goToAlignment(){
+  router.push({
+    name:'alignment',
+    params:{
+      item:'item'
     }
-  }
+  })
 }
 </script>
 
@@ -22,12 +26,7 @@ export default {
         </div>
         <div class="col">
           <label for="alignment">ALIGNMENT</label>
-          <select v-model="ALIGNMENT">
-            <option disabled value="">Please select one</option>
-            <option>A</option>
-            <option>B</option>
-            <option>C</option>
-          </select>
+          <button @click="goToAlignment()">{{alignment}}}</button>
         </div>
       </div>
       <div class="col">
