@@ -1,4 +1,6 @@
 <script setup>
+import {characterStore} from "@/Stores/CharacterStore.js";
+const characterStoreInstance = characterStore()
 defineProps({
   item:String
 })
@@ -9,47 +11,47 @@ defineProps({
     <p>{{$props.item}}</p>
     <div class="alignment">
       <div class="row">
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('Lawful Good')">
             <p>Lawful Good</p>
             <p>croisé</p>
         </div>
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('Neutral Good')">
             <p>Neutral Good</p>
             <p>bienfaiteur</p>
         </div>
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('Chaotic Good')">
           <p>Chaotic Good</p>
           <p>rebelles</p>
         </div>
       </div>
       <div class="row">
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('Lawful Neutral')">
           <p>Lawful Neutral</p>
           <p>juge</p>
         </div>
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('True Neutral')">
           <p>True Neutral</p>
           <p>indécis</p>
         </div>
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('Chaotic Neutral')">
           <p>Chaotic Neutral</p>
           <p>esprit libre</p>
         </div>
       </div>
       <div class="row">
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('Lawful Evil')">
           <p>
             Lawful Evil
           </p>
           <p>dominateur</p>
         </div>
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('Neutral Evil')">
           <p>
             Neutral Evil
           </p>
           <p>malfaisant</p>
         </div>
-        <div>
+        <div @click="characterStoreInstance.patchAlignment('Chaotic Evil')">
           <p>Chaotic Evil</p>
           <p>destructeur</p>
         </div>
