@@ -1,9 +1,11 @@
 <script setup>
-import {ref} from 'vue'
+import {onMounted, ref, watch} from 'vue'
 import router from "@/router/index.js";
 const alignment = ref("Choose Alignment")
 import {characterStore} from "@/Stores/CharacterStore.js";
 const characterStoreInstance = characterStore()
+
+const CHARACTERNAME = ref(""); // Declare ref for CHARACTERNAME
 function goToAlignment(){
   router.push({
     name:'alignment',
@@ -12,6 +14,23 @@ function goToAlignment(){
     }
   })
 }
+
+// Watch for changes in CHARACTERNAME and update local storage
+watch(CHARACTERNAME, (newValue) => {
+  localStorage.setItem('CHARACTERNAME', newValue);
+});
+
+// On component mount, retrieve the CHARACTERNAME from local storage
+onMounted(() => {
+  const storedName = localStorage.getItem('CHARACTERNAME');
+  if (storedName) {
+    CHARACTERNAME.value = storedName;
+  }
+});
+</script>
+
+<script>
+
 </script>
 
 <template>
